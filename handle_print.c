@@ -28,18 +28,18 @@ for (i = 0; fmt_types[i].fmt != '\0'; i++)
 if (fmt[*ind] == fmt_types[i].fmt)
 return (fmt_types[i].fn(list, buffer, flags, width, precision, size));
 
-int (fmt_types[i].fmt == '\0')
-{
+
 if (fmt[*ind] == '\0')
-return (-1);
+{
+	if (fmt[*ind] == '\0')
 
 unknow_len += write(1, "%%", 1);
 if (fmt[*ind - 1] == ' ')
-unknw_len += write(1, " ", 1);
+unknow_len += write(1, " ", 1);
 
 else if (width)
 {
---(*ind)
+--(*ind);
 while (fmt[*ind] != ' ' && fmt[*ind] != '%')
 --(*ind);
 
@@ -52,7 +52,6 @@ unknow_len += write(1, &fmt[*ind], 1);
 return (unknow_len);
 }
 
-}
 
 return (printed_chars);
 }
